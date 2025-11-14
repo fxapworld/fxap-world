@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus | Premium Products</title>
+    <title>Modern E-Commerce Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,18 +14,17 @@
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
+            background-color: #f8f9fa;
+            color: #333;
         }
 
         /* Header Styles */
         header {
-            background-color: #0a0a0a;
-            box-shadow: 0 2px 20px rgba(255, 0, 0, 0.2);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #333;
         }
 
         .top-bar {
@@ -33,24 +32,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
+            border-bottom: 1px solid #eee;
         }
 
         .logo {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo-text {
             font-size: 24px;
             font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #4a6cf7;
         }
 
         .search-container {
@@ -69,27 +57,20 @@
         .search-bar input {
             width: 100%;
             padding: 12px 20px;
-            background: #1a1a1a;
-            border: 2px solid #ff0033;
+            border: 2px solid #4a6cf7;
             border-radius: 50px 0 0 50px;
             font-size: 16px;
             outline: none;
-            color: #ffffff;
             transition: all 0.3s;
         }
 
         .search-bar input:focus {
-            box-shadow: 0 0 0 3px rgba(255, 0, 51, 0.3);
-            background: #222;
-        }
-
-        .search-bar input::placeholder {
-            color: #888;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
         }
 
         .search-bar button {
             padding: 12px 25px;
-            background: #ff0033;
+            background: #4a6cf7;
             color: white;
             border: none;
             border-radius: 0 50px 50px 0;
@@ -99,26 +80,26 @@
         }
 
         .search-bar button:hover {
-            background: #cc0029;
+            background: #3a5bd9;
         }
 
         .cart-icon {
             position: relative;
             font-size: 22px;
-            color: #ffffff;
+            color: #555;
             cursor: pointer;
             transition: color 0.3s;
         }
 
         .cart-icon:hover {
-            color: #ff0033;
+            color: #4a6cf7;
         }
 
         .cart-count {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #ff0033;
+            background: #ff4757;
             color: white;
             border-radius: 50%;
             width: 20px;
@@ -133,7 +114,6 @@
         /* Navigation Styles */
         nav {
             padding: 15px 5%;
-            background: #111;
         }
 
         .nav-links {
@@ -148,7 +128,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ddd;
+            color: #555;
             font-weight: 500;
             padding: 8px 15px;
             border-radius: 5px;
@@ -156,8 +136,8 @@
         }
 
         .nav-links a:hover {
-            color: #ff0033;
-            background-color: rgba(255, 0, 51, 0.1);
+            color: #4a6cf7;
+            background-color: #f0f4ff;
         }
 
         /* Main Content Styles */
@@ -168,23 +148,10 @@
         }
 
         .section-title {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
             text-align: center;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: #ff0033;
         }
 
         .products-grid {
@@ -194,89 +161,56 @@
         }
 
         .product-card {
-            background: #1a1a1a;
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            border: 1px solid #333;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:nth-child(5) { animation-delay: 0.5s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 51, 0.2);
-            border-color: #ff0033;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .product-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 20px;
+            padding: 15px;
         }
 
         .product-title {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #ffffff;
+            color: #333;
         }
 
         .product-price {
             font-size: 20px;
             font-weight: 700;
-            color: #ff0033;
+            color: #4a6cf7;
             margin-bottom: 15px;
         }
 
         .add-to-cart {
             width: 100%;
-            padding: 12px;
-            background: #ff0033;
+            padding: 10px;
+            background: #4a6cf7;
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            font-weight: 600;
+            transition: background 0.3s;
         }
 
         .add-to-cart:hover {
-            background: #cc0029;
-            transform: translateY(-2px);
-        }
-
-        .add-to-cart:active {
-            transform: translateY(0);
+            background: #3a5bd9;
         }
 
         /* Product Detail Page Styles */
@@ -285,30 +219,20 @@
             max-width: 1000px;
             margin: 30px auto;
             padding: 0 20px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .back-button {
             display: inline-flex;
             align-items: center;
             margin-bottom: 20px;
-            color: #ff0033;
+            color: #4a6cf7;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 8px 15px;
-            border-radius: 5px;
-            background: rgba(255, 0, 51, 0.1);
         }
 
         .back-button:hover {
-            color: #ffffff;
-            background: rgba(255, 0, 51, 0.2);
+            color: #3a5bd9;
         }
 
         .back-button i {
@@ -318,11 +242,10 @@
         .detail-container {
             display: flex;
             flex-wrap: wrap;
-            background: #1a1a1a;
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .detail-image {
@@ -341,36 +264,35 @@
         .detail-title {
             font-size: 28px;
             margin-bottom: 15px;
-            color: #ffffff;
+            color: #333;
         }
 
         .detail-price {
             font-size: 24px;
             font-weight: 700;
-            color: #ff0033;
+            color: #4a6cf7;
             margin-bottom: 20px;
         }
 
         .detail-description {
             line-height: 1.6;
             margin-bottom: 25px;
-            color: #ccc;
+            color: #666;
         }
 
         .detail-button {
             padding: 12px 25px;
-            background: #ff0033;
+            background: #4a6cf7;
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
-            font-weight: 600;
         }
 
         .detail-button:hover {
-            background: #cc0029;
+            background: #3a5bd9;
         }
 
         /* Cart Styles */
@@ -380,13 +302,12 @@
             right: -400px;
             width: 380px;
             height: 100vh;
-            background: #1a1a1a;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             transition: right 0.4s ease;
             z-index: 1000;
             padding: 20px;
             overflow-y: auto;
-            border-left: 1px solid #333;
         }
 
         .cart-sidebar.active {
@@ -399,13 +320,12 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #eee;
         }
 
         .cart-title {
             font-size: 22px;
             font-weight: 600;
-            color: #ffffff;
         }
 
         .close-cart {
@@ -413,7 +333,7 @@
             border: none;
             font-size: 22px;
             cursor: pointer;
-            color: #ff0033;
+            color: #777;
         }
 
         .cart-items {
@@ -424,7 +344,7 @@
             display: flex;
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .cart-item-image {
@@ -442,26 +362,20 @@
         .cart-item-title {
             font-weight: 500;
             margin-bottom: 5px;
-            color: #ffffff;
         }
 
         .cart-item-price {
-            color: #ff0033;
+            color: #4a6cf7;
             font-weight: 600;
         }
 
         .cart-item-remove {
             background: none;
             border: none;
-            color: #ff0033;
+            color: #ff4757;
             cursor: pointer;
             font-size: 14px;
             margin-top: 5px;
-            transition: color 0.3s;
-        }
-
-        .cart-item-remove:hover {
-            color: #ffffff;
         }
 
         .cart-total {
@@ -469,24 +383,22 @@
             font-weight: 700;
             margin: 20px 0;
             text-align: right;
-            color: #ffffff;
         }
 
         .checkout-button {
             width: 100%;
             padding: 15px;
-            background: #ff0033;
+            background: #4a6cf7;
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
-            font-weight: 600;
         }
 
         .checkout-button:hover {
-            background: #cc0029;
+            background: #3a5bd9;
         }
 
         .overlay {
@@ -495,7 +407,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
             display: none;
             z-index: 999;
         }
@@ -506,11 +418,10 @@
 
         /* Footer Styles */
         footer {
-            background: #111;
-            color: #ddd;
+            background: #333;
+            color: white;
             padding: 40px 5% 20px;
             margin-top: 50px;
-            border-top: 1px solid #333;
         }
 
         .footer-content {
@@ -529,7 +440,7 @@
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 15px;
-            color: #ffffff;
+            color: #fff;
         }
 
         .footer-column ul {
@@ -541,20 +452,20 @@
         }
 
         .footer-column ul li a {
-            color: #aaa;
+            color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-column ul li a:hover {
-            color: #ff0033;
+            color: #4a6cf7;
         }
 
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #888;
+            border-top: 1px solid #444;
+            color: #aaa;
             font-size: 14px;
         }
 
@@ -597,10 +508,7 @@
     <!-- Header Section -->
     <header>
         <div class="top-bar">
-            <div class="logo-container">
-                <img src="https://files.catbox.moe/385ovg.png" alt="Nexus Logo" class="logo">
-                <div class="logo-text">Nexus</div>
-            </div>
+            <div class="logo">ShopEase</div>
             <div class="search-container">
                 <div class="search-bar">
                     <input type="text" placeholder="Search for products...">
@@ -667,8 +575,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Nexus</h3>
-                <p>Your premium destination for cutting-edge products. Quality, style, and innovation in one place.</p>
+                <h3>ShopEase</h3>
+                <p>Your one-stop destination for all your shopping needs. Quality products, great prices, and excellent service.</p>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
@@ -691,14 +599,14 @@
             <div class="footer-column">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Nexus Street, City</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City</li>
                     <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
-                    <li><i class="fas fa-envelope"></i> info@nexus.com</li>
+                    <li><i class="fas fa-envelope"></i> info@shopease.com</li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2023 Nexus. All rights reserved.
+            &copy; 2023 ShopEase. All rights reserved.
         </div>
     </footer>
 
