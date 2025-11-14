@@ -3,35 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Pages Site</title>
+  <title>FXAP WORLD – Store</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+    /* Full-width design */
+    body, html, .container, .site-container, .page-block, .custom-content-block, .custom-html-block {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --panel: #121212;
+      --muted: #cccccc;
+      --accent: #ff1a1a;
+      --white: #ffffff;
+      --radius: 12px;
+      --gap: 20px;
+      --maxwidth: 1200px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Base Styles */
+    .fxap-root {
+      background: var(--bg);
+      color: var(--white);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 100%;
       margin: 0;
-      padding: 0;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+
+    .fxap-root a {
+      color: var(--white);
+      text-decoration: none;
     }
-    h1 {
-      color: #333;
+
+    .fxap-hero {
+      width: 100%;
+      max-width: var(--maxwidth);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+      border-radius: 16px;
+      padding: 48px 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    p {
-      color: #555;
+
+    .hero-content {
+      text-align: center;
+      max-width: 880px;
     }
-    a {
-      color: #0077b6;
+
+    .logo {
+      max-width: 260px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      margin: 0 0 24px 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* Categories */
+    .fxap-categories {
+      width: 100%;
+      max-width: var(--maxwidth);
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cat-btn {
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cat-btn.active {
+      background: var(--panel);
+      color: var(--white);
+      border-color: rgba(255, 26, 26, 0.9);
+      box-shadow: 0 8px 24px rgba(255, 26, 26, 0.07);
+      transform: translateY(-2px);
+    }
+
+    /* Grid layout */
+    .fxap-grid {
+      width: 100%;
+      max-width: var(--maxwidth);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--gap);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 340px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    .thumb {
+      height: 150px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0;
+      color: var(--white);
+    }
+
+    .price {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 17px;
+    }
+
+    /* Footer */
+    .fxap-footer {
+      margin-top: 30px;
+      max-width: var(--maxwidth);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 10px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .fxap-footer .footer-links a {
+      margin-left: 12px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .fxap-footer .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .logo {
+        max-width: 200px;
+      }
+      .tagline {
+        font-size: 15px;
+      }
+      .fxap-grid {
+        gap: 16px;
+      }
+      .thumb {
+        height: 130px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to My GitHub Pages Site!</h1>
-    <p>This is a simple webpage hosted directly from GitHub.</p>
-    <p>You can check out my <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub Profile</a>.</p>
+
+  <!-- Main Section -->
+  <div id="fxap-store" class="fxap-root">
+    <!-- Hero Section -->
+    <div class="fxap-hero">
+      <div class="hero-content">
+        <img src="https://via.placeholder.com/260x100.png?text=Logo" alt="Logo" class="logo">
+        <p class="tagline">Welcome to FXAP World - Your destination for everything awesome</p>
+        <div class="hero-cta">
+          <input type="text" id="fx-search" placeholder="Search for products...">
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="fxap-categories">
+      <button class="cat-btn active">All</button>
+      <button class="cat-btn">Electronics</button>
+      <button class="cat-btn">Clothing</button>
+      <button class="cat-btn">Home</button>
+    </div>
+
+    <!-- Product Grid Section -->
+    <div class="fxap-grid">
+      <div class="card">
+        <div class="thumb" style="background-image: url('https://via.placeholder.com/220x150.png?text=Product');"></div>
+        <div class="meta">
+          <span class="title">Product 1</span>
+          <span class="price">$25.00</span>
+        </div>
+      </div>
+      <!-- Add more product cards here -->
+    </div>
+
+    <!-- Footer Section -->
+    <div class="fxap-footer">
+      <p>&copy; 2025 FXAP World. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // JavaScript for handling categories and search (optional)
+    document.getElementById('search-btn').addEventListener('click', function() {
+      let searchQuery = document.getElementById('fx-search').value;
+      alert('Searching for: ' + searchQuery);
+      // Implement actual search logic here
+    });
+
+    // Example of toggling categories
+    const categoryButtons = document.querySelectorAll('.cat-btn');
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
